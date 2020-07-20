@@ -325,6 +325,6 @@
         		</configuration>
 			</plugin>
 		</plugins>
+		<finalName>containerproxy-docker</finalName>
 	</build>
-
 </project>
