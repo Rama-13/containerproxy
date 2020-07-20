@@ -68,6 +68,7 @@ public class OpenIDAuthenticationBackend implements IAuthenticationBackend {
 
 	private static final String REG_ID = "shinyproxy";
 	private static final String ENV_TOKEN_NAME = "SHINYPROXY_OIDC_ACCESS_TOKEN";
+	private static final String ENV_ID_TOKEN_NAME = "SHINYPROXY_OIDC_ID_TOKEN";
 	
 	private Logger log = LogManager.getLogger(OpenIDAuthenticationBackend.class);
 	
@@ -131,6 +132,7 @@ public class OpenIDAuthenticationBackend implements IAuthenticationBackend {
 		if (client == null || client.getAccessToken() == null) return;
 		
 		env.add(ENV_TOKEN_NAME + "=" + client.getAccessToken().getTokenValue());
+		env.add(ENV_ID_TOKEN_NAME + "=" + user.getIdToken().getTokenValue());
 	}
 	
 	protected ClientRegistrationRepository createClientRepo() {
